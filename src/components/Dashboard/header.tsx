@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-sm shadow-sm">
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="container mx-auto px-6 py-2 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-3 group">
             <div className="relative">
@@ -66,9 +66,9 @@ const Header = () => {
             className="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300 ease-in-out group border border-transparent hover:border-gray-200 hover:shadow-sm"
           >
             <div className="h-9 w-9 rounded-full bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 flex items-center justify-center text-white text-sm font-semibold shadow-md ring-2 ring-blue-100 group-hover:ring-blue-200 group-hover:scale-105 transition-all duration-300 ease-in-out">
-              N
+              M
             </div>
-            <span className="font-medium text-gray-700 group-hover:text-gray-900 transition-colors duration-300">Name</span>
+            <span className="font-medium text-gray-700 group-hover:text-gray-900 transition-colors duration-300">Mehdi</span>
             <svg 
               className="h-4 w-4 text-gray-400 group-hover:text-gray-600 transition-colors duration-300" 
               fill="none" 
