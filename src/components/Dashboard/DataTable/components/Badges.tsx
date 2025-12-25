@@ -9,15 +9,15 @@ type StatusBadgeProps = {
 export const StatusBadge = ({ status }: StatusBadgeProps) => {
   if (status === 'open') {
     return (
-      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-sm group-hover:shadow-md group-hover:bg-emerald-100 transition-all duration-300 ease-in-out">
-        <CheckCircle2 className="h-3.5 w-3.5 transform group-hover:rotate-180 transition-transform duration-300 ease-in-out" />
+      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-sm">
+        <CheckCircle2 className="h-3.5 w-3.5" />
         Open
       </span>
     )
   }
   return (
-    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200 shadow-sm group-hover:shadow-md group-hover:bg-amber-100 transition-all duration-300 ease-in-out">
-      <AlertCircle className="h-3.5 w-3.5 animate-pulse" />
+    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200 shadow-sm">
+      <AlertCircle className="h-3.5 w-3.5" />
       Unseen
     </span>
   )
@@ -46,8 +46,8 @@ export const PriorityBadge = ({ priority }: PriorityBadgeProps) => {
   }
   return (
     <div className="flex items-center gap-2.5">
-      <div className={`h-2.5 w-2.5 rounded-full ${colors[priority]} shadow-sm transition-all duration-300 ease-in-out transform group-hover:scale-125`} />
-      <span className={`text-sm font-medium ${textColors[priority]} transition-colors duration-300 ease-in-out transform group-hover:translate-x-0.5`}>{labels[priority]}</span>
+      <div className={`h-2.5 w-2.5 rounded-full ${colors[priority]} shadow-sm`} />
+      <span className={`text-sm font-medium ${textColors[priority]}`}>{labels[priority]}</span>
     </div>
   )
 }
@@ -68,7 +68,7 @@ export const TagBadge = ({ tag }: TagBadgeProps) => {
   }
   return (
     <span
-      className={`inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold border shadow-sm transition-all duration-300 ease-in-out transform group-hover:scale-105 ${styles[tag] || 'bg-gray-50 text-gray-700 border-gray-200'}`}
+      className={`inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold border shadow-sm ${styles[tag] || 'bg-gray-50 text-gray-700 border-gray-200'}`}
     >
       {String(tag)}
     </span>
@@ -83,22 +83,17 @@ type AssigneeDisplayProps = {
 export const AssigneeDisplay = ({ assignee }: AssigneeDisplayProps) => {
   if (!assignee || !assignee.name) {
     return (
-      <span className="text-base text-gray-500 group-hover:text-gray-700 transition-colors duration-300 ease-in-out font-medium">
+      <span className="text-base text-gray-500 font-medium">
         Unassigned
       </span>
     )
   }
   return (
-    <div className="flex items-center gap-3">
-      <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-sm font-bold shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300 ease-in-out ring-2 ring-blue-100">
-        {assignee.initial || '?'}
-      </div>
-      <div className="flex flex-col">
-        <span className="text-base font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 ease-in-out">{assignee.name || 'Unknown'}</span>
-        {assignee.date && (
-          <span className="text-sm text-gray-500 group-hover:text-gray-700 transition-colors duration-300 ease-in-out">{assignee.date}</span>
-        )}
-      </div>
+    <div className="flex flex-col">
+      <span className="text-base font-medium text-gray-900">{assignee.name || 'Unknown'}</span>
+      {assignee.date && (
+        <span className="text-sm text-gray-500 mt-0.5">{assignee.date}</span>
+      )}
     </div>
   )
 }

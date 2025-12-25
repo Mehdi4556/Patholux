@@ -9,15 +9,16 @@ import { Pagination } from './components/Pagination'
 
 const DataTable = () => {
   const [currentPage, setCurrentPage] = useState(1)
-  const itemsPerPage = 50
+  const itemsPerPage = 20
 
   // Login query
   const { data: loginData, isLoading: isLoggingIn } = useLogin()
 
   // Fetch cases only after we have a token
+  // Fetch 50 cases from API but display 20 per page
   const { data: casesData, isLoading: isLoadingCases, error, isError } = useCases(
     loginData?.token,
-    itemsPerPage
+    50
   )
 
   // Process cases data from API response
